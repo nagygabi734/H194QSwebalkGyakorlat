@@ -16,6 +16,7 @@ public class Webalk1 {
 		
 		switch (j) {
 		case "+": System.out.println(a+b);break;
+		case "-": System.out.println(a-b);break;
 		}
 	}
 	
