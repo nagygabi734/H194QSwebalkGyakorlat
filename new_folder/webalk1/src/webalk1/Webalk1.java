@@ -18,6 +18,8 @@ public class Webalk1 {
 		case "+": System.out.println(a+b);break;
 		case "-": System.out.println(a-b);break;
 		case "*": System.out.println(a*b);break;
+		case "/": System.out.println(a/b);break;
+		
 		}
 	}
 	
