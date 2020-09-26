@@ -1,13 +1,18 @@
+// To save as "<CATALINA_HOME>\webapps\helloservlet\WEB-INF\src\mypkg\HelloServlet.java"
 package test;
  
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
- 
-public class TestServlet extends HttpServlet {
-	private static final String LOCATION="D:\\xampp\\tomcat\\webaps\\TestServlet\\WEB-INF\\config.conf";
+import java.util.Properties;
+import javax.servlet.annotation.*;
 
-  @Override
+ @WebServlet(name="t", urlPatterns = {"/tests/*"})
+public class TestServlet extends HttpServlet {
+
+	private static final String LOCATION ="C:\\xampp\\tomcat\\webapps\\TestServlet\\WEB-INF\\config.conf";
+
+	@Override
    public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws IOException, ServletException {
       // Set the response message's MIME type
@@ -20,9 +25,9 @@ public class TestServlet extends HttpServlet {
          out.println("<!DOCTYPE html>");
          out.println("<html><head>");
          out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-         out.println("<title>Hello, World</title></head>");
+         out.println("<title>Hello, Nagy Gábor</title></head>");
          out.println("<body>");
-         out.println("<h1>Hello, world!</h1>");  // says Hello
+         out.println("<h1>Hello, Nagy Gábor!</h1>");  // says Hello
          // Echo client's request information
          out.println("<p>Request URI: " + request.getRequestURI() + "</p>");
          out.println("<p>Protocol: " + request.getProtocol() + "</p>");
