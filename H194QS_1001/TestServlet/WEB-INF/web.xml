@@ -13,6 +13,11 @@
       <servlet-name>EchoServlet</servlet-name>
       <servlet-class>test.EchoServlet</servlet-class>
    </servlet>
+   
+	<servlet>
+		<servlet-name>SessionServlet</servlet-name>
+		<servlet-class>test.SessionServlet</servlet-class>
+	</servlet>
  
    <servlet-mapping>
       <servlet-name>TestServlet</servlet-name>
@@ -23,4 +28,9 @@
       <servlet-name>EchoServlet</servlet-name>
       <url-pattern>/echo</url-pattern>
    </servlet-mapping>
+   
+	<servlet-mapping>
+		<servlet-name>SessionServlet</servlet-name>
+		<url-pattern>/session</url-pattern>
+	</servlet-mapping>
 </web-app>
