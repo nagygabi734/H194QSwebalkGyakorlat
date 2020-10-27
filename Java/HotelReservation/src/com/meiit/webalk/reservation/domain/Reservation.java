@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Reservation {
 
+	//BigDecimal
 	private int ammount;
 	private LocalDateTime from;
 	private LocalDateTime to;
