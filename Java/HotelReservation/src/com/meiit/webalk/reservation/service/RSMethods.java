@@ -39,10 +39,12 @@ public class RSMethods {
 		int euro=364;
 		int usd=307;
 		
+		//Never use sitch case its risky..
+		//Hotel data is not depends on the currency!! The switch case is useless in here
 		switch (bperson.getCurrency()) {
 		case HUF: {
 			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
+			hotel.setAdress("HotelcÃ­m:");
 			hotel.setName("Hilton");
 			hotel.setStars(4);
 
@@ -101,7 +103,7 @@ public class RSMethods {
 		}
 		case EUR: {
 			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
+			hotel.setAdress("HotelcÃ­m:");
 			hotel.setName("Hilton");
 			hotel.setStars(4);
 
@@ -160,7 +162,7 @@ public class RSMethods {
 		}
 		case USD: {
 			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
+			hotel.setAdress("HotelcÃ­m:");
 			hotel.setName("Hilton");
 			hotel.setStars(4);
 
@@ -225,6 +227,7 @@ public class RSMethods {
 	
 
 	public void saveReservation(Reservation r) {
+		//Reservation is processed after check out
 		r.setProcessed(true);
 		reservations.add(r);
 
@@ -235,12 +238,15 @@ public class RSMethods {
 	}
 
 	public void checkIn() {
+		//1 person how able to check in more than 1 place? 
 		for (int i = 0; i < reservations.size(); i++) {
 			reservations.get(i).setActive(true);
 		}
 	}
 
 	public void checkOut() {
+		//same like check in
+		//Refund should be here
 		for (int i = 0; i < reservations.size(); i++) {
 			reservations.get(i).setActive(false);
 		}
