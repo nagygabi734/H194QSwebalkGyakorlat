@@ -7,7 +7,7 @@ import com.meiit.webalk.reservation.service.*;
 import com.meiit.webalk.reservation.view.*;
 
 public abstract class App implements View {
-
+	// not bad but you need to split as the UML defined use the methods for the separations
 	public static void main(String[] args) {
 		RSMethods rsmethods = new RSMethods();
 		VMethods vmethods = new VMethods();
@@ -49,7 +49,7 @@ public abstract class App implements View {
 		vmethods.printCheckIn(rsmethods.findAllReservations());
 		vmethods.printCheckOut(rsmethods.findBookingPerson(), rsmethods.findAllReservations());
 	}
-		
+		//NEver leav unsused code in the repo
 		/*
 		 * switch (rsmethods.findBookingPerson().getCurrency()) { case HUF: { do {
 		 * 
