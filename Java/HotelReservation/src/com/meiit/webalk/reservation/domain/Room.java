@@ -5,6 +5,7 @@ public class Room {
 	private int number;
 	private int beds;
 	private boolean balcon;
+	//BigDecimal
 	private int price;
 	private WingType wing;
 	
