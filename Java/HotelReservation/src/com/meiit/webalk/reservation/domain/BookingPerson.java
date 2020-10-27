@@ -6,6 +6,7 @@ public class BookingPerson extends User {
 	
 	private String name;
 	private int accountNumber;
+	//BigDecimal
 	private int balance;
 	private LocalDate birth;
 	private Currency currency;
