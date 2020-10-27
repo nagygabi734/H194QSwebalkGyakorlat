@@ -16,6 +16,7 @@ public class VMethods {
 	Scanner sc = new Scanner(System.in);
 	public  String sroom="";
 	
+	//Parse check is ok bzt should be BigDecimal
 	public boolean parseCheck() {
 		try {
 			Integer.parseInt(sroom);
@@ -105,6 +106,7 @@ public class VMethods {
 	public void printCheckOut(BookingPerson a, List<Reservation> reservations) {
 		System.out.println("Few days later");
 		System.out.println("Check out! Surpeise you are the 10000th gest you got 10% refund");
+		//Calculation should be in service and Use BigDecimal
 		int moneyback = 0;
 		for (int i = 0; i < reservations.size(); i++) {
 			moneyback = (int) (moneyback + (reservations.get(i).getAmmount() * 0.1));
