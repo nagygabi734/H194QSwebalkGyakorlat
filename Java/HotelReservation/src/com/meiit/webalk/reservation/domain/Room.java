@@ -7,7 +7,12 @@ public class Room {
 	private int number;
 	private int beds;
 	private boolean balcon;
+<<<<<<< HEAD
 	private BigDecimal price;
+=======
+	//BigDecimal
+	private int price;
+>>>>>>> 1e1e5cea61bca8e9086527ebe4871191f8f316d7
 	private WingType wing;
 	
 	public BigDecimal getPrice() {
