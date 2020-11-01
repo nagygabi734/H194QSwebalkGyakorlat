@@ -1,5 +1,6 @@
 package com.meiit.webalk.reservation.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class RSMethods {
 
 	BookingPerson bperson = new BookingPerson();
 	List<Reservation> reservations = new ArrayList<Reservation>();
-	
+
 	public void saveBookingPerson(BookingPerson a) {
 		bperson = a;
 	}
@@ -31,198 +32,71 @@ public class RSMethods {
 	}
 
 	public Hotel Hotelfill() {
-		
-		int r1price=5000;
-		int r2price=15000;
-		int r3price=2000;
-		int r4price=5000;
-		int euro=364;
-		int usd=307;
-		
-		switch (bperson.getCurrency()) {
-		case HUF: {
-			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
-			hotel.setName("Hilton");
-			hotel.setStars(4);
 
-			List<Floor> floors = new ArrayList<Floor>();
-			Floor fl1 = new Floor();
-			fl1.setFloorNumber(1);
-			fl1.setHotel(hotel);
+		BigDecimal r1price = BigDecimal.valueOf(5000);
+		BigDecimal r2price = BigDecimal.valueOf(15000);
+		BigDecimal r3price = BigDecimal.valueOf(2000);
+		BigDecimal r4price = BigDecimal.valueOf(5000);
 
-			List<Wing> wings = new ArrayList<Wing>();
-			Wing wing = new Wing();
-			wing.setDescription("North");
-			wing.setFloor(fl1);
+		Hotel hotel = new Hotel();
+		hotel.setAdress("Hotelcím:");
+		hotel.setName("Hilton");
+		hotel.setStars(4);
 
-			List<Room> rooms = new ArrayList<Room>();
-			Room r1 = new Room();
-			r1.setBalcon(true);
-			r1.setBeds(2);
-			r1.setNumber(1);
-			r1.setPrice(r1price);
-			r1.setWing(WingType.NORTH);
-			rooms.add(r1);
+		List<Floor> floors = new ArrayList<Floor>();
+		Floor fl1 = new Floor();
+		fl1.setFloorNumber(1);
+		fl1.setHotel(hotel);
 
-			Room r2 = new Room();
-			r2.setBalcon(true);
-			r2.setBeds(4);
-			r2.setNumber(2);
-			r2.setPrice(r2price);
-			r2.setWing(WingType.NORTH);
-			rooms.add(r2);
+		List<Wing> wings = new ArrayList<Wing>();
+		Wing wing = new Wing();
+		wing.setDescription("North");
+		wing.setFloor(fl1);
 
-			Room r3 = new Room();
-			r3.setBalcon(true);
-			r3.setBeds(1);
-			r3.setNumber(3);
-			r3.setPrice(r3price);
-			r3.setWing(WingType.NORTH);
-			rooms.add(r3);
+		List<Room> rooms = new ArrayList<Room>();
+		Room r1 = new Room();
+		r1.setBalcon(true);
+		r1.setBeds(2);
+		r1.setNumber(1);
+		r1.setPrice(r1price);
+		r1.setWing(WingType.NORTH);
+		rooms.add(r1);
 
-			Room r4 = new Room();
-			r4.setBalcon(true);
-			r4.setBeds(2);
-			r4.setNumber(4);
-			r4.setPrice(r4price);
-			r4.setWing(WingType.NORTH);
-			rooms.add(r4);
+		Room r2 = new Room();
+		r2.setBalcon(true);
+		r2.setBeds(4);
+		r2.setNumber(2);
+		r2.setPrice(r2price);
+		r2.setWing(WingType.NORTH);
+		rooms.add(r2);
 
-			wing.setRooms(rooms);
-			wings.add(wing);
+		Room r3 = new Room();
+		r3.setBalcon(true);
+		r3.setBeds(1);
+		r3.setNumber(3);
+		r3.setPrice(r3price);
+		r3.setWing(WingType.NORTH);
+		rooms.add(r3);
 
-			fl1.setWings(wings);
-			floors.add(fl1);
+		Room r4 = new Room();
+		r4.setBalcon(true);
+		r4.setBeds(2);
+		r4.setNumber(4);
+		r4.setPrice(r4price);
+		r4.setWing(WingType.NORTH);
+		rooms.add(r4);
 
-			hotel.setFloors(floors);
+		wing.setRooms(rooms);
+		wings.add(wing);
+
+		fl1.setWings(wings);
+		floors.add(fl1);
+
+		hotel.setFloors(floors);
 		return hotel;
-			
-		}
-		case EUR: {
-			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
-			hotel.setName("Hilton");
-			hotel.setStars(4);
 
-			List<Floor> floors = new ArrayList<Floor>();
-			Floor fl1 = new Floor();
-			fl1.setFloorNumber(1);
-			fl1.setHotel(hotel);
-
-			List<Wing> wings = new ArrayList<Wing>();
-			Wing wing = new Wing();
-			wing.setDescription("North");
-			wing.setFloor(fl1);
-
-			List<Room> rooms = new ArrayList<Room>();
-			Room r1 = new Room();
-			r1.setBalcon(true);
-			r1.setBeds(2);
-			r1.setNumber(1);
-			r1.setPrice(r1price/euro);
-			r1.setWing(WingType.NORTH);
-			rooms.add(r1);
-
-			Room r2 = new Room();
-			r2.setBalcon(true);
-			r2.setBeds(4);
-			r2.setNumber(2);
-			r2.setPrice(r2price/euro);
-			r2.setWing(WingType.NORTH);
-			rooms.add(r2);
-
-			Room r3 = new Room();
-			r3.setBalcon(true);
-			r3.setBeds(1);
-			r3.setNumber(3);
-			r3.setPrice(r3price/euro);
-			r3.setWing(WingType.NORTH);
-			rooms.add(r3);
-
-			Room r4 = new Room();
-			r4.setBalcon(true);
-			r4.setBeds(2);
-			r4.setNumber(4);
-			r4.setPrice(r4price/euro);
-			r4.setWing(WingType.NORTH);
-			rooms.add(r4);
-
-			wing.setRooms(rooms);
-			wings.add(wing);
-
-			fl1.setWings(wings);
-			floors.add(fl1);
-
-			hotel.setFloors(floors);
-		return hotel;
-			
-		}
-		case USD: {
-			Hotel hotel = new Hotel();
-			hotel.setAdress("Hotelcím:");
-			hotel.setName("Hilton");
-			hotel.setStars(4);
-
-			List<Floor> floors = new ArrayList<Floor>();
-			Floor fl1 = new Floor();
-			fl1.setFloorNumber(1);
-			fl1.setHotel(hotel);
-
-			List<Wing> wings = new ArrayList<Wing>();
-			Wing wing = new Wing();
-			wing.setDescription("North");
-			wing.setFloor(fl1);
-
-			List<Room> rooms = new ArrayList<Room>();
-			Room r1 = new Room();
-			r1.setBalcon(true);
-			r1.setBeds(2);
-			r1.setNumber(1);
-			r1.setPrice(r1price/usd);
-			r1.setWing(WingType.NORTH);
-			rooms.add(r1);
-
-			Room r2 = new Room();
-			r2.setBalcon(true);
-			r2.setBeds(4);
-			r2.setNumber(2);
-			r2.setPrice(r2price/usd);
-			r2.setWing(WingType.NORTH);
-			rooms.add(r2);
-
-			Room r3 = new Room();
-			r3.setBalcon(true);
-			r3.setBeds(1);
-			r3.setNumber(3);
-			r3.setPrice(r3price/usd);
-			r3.setWing(WingType.NORTH);
-			rooms.add(r3);
-
-			Room r4 = new Room();
-			r4.setBalcon(true);
-			r4.setBeds(2);
-			r4.setNumber(4);
-			r4.setPrice(r4price/euro);
-			r4.setWing(WingType.NORTH);
-			rooms.add(r4);
-
-			wing.setRooms(rooms);
-			wings.add(wing);
-
-			fl1.setWings(wings);
-			floors.add(fl1);
-
-			hotel.setFloors(floors);
-		return hotel;		
-		}
-		default:
-			return Hotelfill();
-		}
-		
-		
-	}
 	
+	}
 
 	public void saveReservation(Reservation r) {
 		r.setProcessed(true);

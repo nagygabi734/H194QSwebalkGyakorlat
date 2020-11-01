@@ -1,10 +1,11 @@
 package com.meiit.webalk.reservation.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Reservation {
 
-	private int ammount;
+	private BigDecimal ammount;
 	private LocalDateTime from;
 	private LocalDateTime to;
 	private boolean active;
@@ -13,10 +14,10 @@ public class Reservation {
 	private Currency currency;
 	int ID;
 	
-	public int getAmmount() {
+	public BigDecimal getAmmount() {
 		return ammount;
 	}
-	public void setAmmount(int i) {
+	public void setAmmount(BigDecimal i) {
 		this.ammount = i;
 	}
 	public LocalDateTime getFrom() {

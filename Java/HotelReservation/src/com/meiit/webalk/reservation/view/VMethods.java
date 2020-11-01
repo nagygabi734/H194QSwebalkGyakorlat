@@ -1,5 +1,7 @@
 package com.meiit.webalk.reservation.view;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,7 +32,7 @@ public class VMethods {
 		bperson.setName(sc.nextLine());
 		System.out.println("How much money do you have?");
 		String bal = sc.nextLine();
-		int balance = Integer.parseInt(bal);
+		BigDecimal balance = new BigDecimal(bal);
 		bperson.setBalance(balance);
 		System.out.println("What is your currency? (HUF, EUR or USD)");
 		String currency = sc.nextLine();
@@ -105,11 +107,12 @@ public class VMethods {
 	public void printCheckOut(BookingPerson a, List<Reservation> reservations) {
 		System.out.println("Few days later");
 		System.out.println("Check out! Surpeise you are the 10000th gest you got 10% refund");
-		int moneyback = 0;
+		BigDecimal moneyback = BigDecimal.valueOf(0);
+		BigDecimal percent=BigDecimal.valueOf(0.1);
 		for (int i = 0; i < reservations.size(); i++) {
-			moneyback = (int) (moneyback + (reservations.get(i).getAmmount() * 0.1));
+			moneyback = moneyback.add(reservations.get(i).getAmmount().multiply(percent));
 		}
-		int money=a.getBalance()+moneyback;
+		BigDecimal money=(a.getBalance().add(moneyback)).setScale(0,BigDecimal.ROUND_DOWN);
 		System.out.println("Your new balance is " + money +" "+ a.getCurrency() + " (balance after refund)");
 	}
 	

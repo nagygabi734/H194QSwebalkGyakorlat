@@ -23,7 +23,7 @@ public abstract class App implements View {
 
 			if (vmethods.parseCheck()) {
 
-				if (rsmethods.findBookingPerson().getBalance() >= room.getPrice()) {
+				if (rsmethods.findBookingPerson().getBalance().intValue() >= room.getPrice().intValue()) {
 					Reservation reservation = new Reservation();
 					reservation.setActive(false);
 					reservation.setAmmount(room.getPrice());
@@ -32,8 +32,7 @@ public abstract class App implements View {
 					reservation.setTo(null);
 					reservation.setProcessed(false);
 					reservation.setCurrency(rsmethods.findBookingPerson().getCurrency());
-					rsmethods.findBookingPerson()
-							.setBalance(rsmethods.findBookingPerson().getBalance() - reservation.getAmmount());
+					rsmethods.findBookingPerson().setBalance(rsmethods.findBookingPerson().getBalance().subtract(reservation.getAmmount()));
 					rsmethods.saveReservation(reservation);
 					vmethods.printReservationSaved(reservation);
 					vmethods.printReservationDetails(rsmethods.findAllHotels(), Integer.parseInt(vmethods.sroom) - 1);
@@ -49,100 +48,4 @@ public abstract class App implements View {
 		vmethods.printCheckIn(rsmethods.findAllReservations());
 		vmethods.printCheckOut(rsmethods.findBookingPerson(), rsmethods.findAllReservations());
 	}
-		
-		/*
-		 * switch (rsmethods.findBookingPerson().getCurrency()) { case HUF: { do {
-		 * 
-		 * vmethods.printRooms(rsmethods.findAllHotels()); Room room =
-		 * vmethods.selectRoom(rsmethods.findAllHotels());
-		 * 
-		 * if (vmethods.parseCheck()) {
-		 * 
-		 * if (rsmethods.findBookingPerson().getBalance() >= room.getPrice()) {
-		 * Reservation reservation = new Reservation(); reservation.setActive(false);
-		 * reservation.setAmmount(room.getPrice());
-		 * reservation.setBookingperson(rsmethods.findBookingPerson());
-		 * reservation.setFrom(null); reservation.setTo(null);
-		 * reservation.setProcessed(false);
-		 * reservation.setCurrency(rsmethods.findBookingPerson().getCurrency());
-		 * rsmethods.findBookingPerson().setBalance(rsmethods.findBookingPerson().
-		 * getBalance() - reservation.getAmmount());
-		 * rsmethods.saveReservation(reservation);
-		 * vmethods.printReservationSaved(reservation);
-		 * vmethods.printReservationDetails(rsmethods.findAllHotels(),
-		 * Integer.parseInt(vmethods.sroom) - 1); } else {
-		 * vmethods.printNotEnoughBalance(rsmethods.findBookingPerson()); }
-		 * vmethods.printBalance(rsmethods.findBookingPerson());
-		 * 
-		 * }
-		 * 
-		 * } while (vmethods.parseCheck());
-		 * vmethods.printReservedRooms(rsmethods.findAllHotels(),
-		 * rsmethods.findAllReservations());
-		 * vmethods.printCheckIn(rsmethods.findAllReservations());
-		 * vmethods.printCheckOut(rsmethods.findBookingPerson(),
-		 * rsmethods.findAllReservations()); break; } case EUR: { do {
-		 * 
-		 * vmethods.printRooms(rsmethods.findAllHotels()); Room room =
-		 * vmethods.selectRoom(rsmethods.findAllHotels());
-		 * 
-		 * if (vmethods.parseCheck()) {
-		 * 
-		 * if (rsmethods.findBookingPerson().getBalance() >= room.getPrice()) {
-		 * Reservation reservation = new Reservation(); reservation.setActive(false);
-		 * reservation.setAmmount(room.getPrice());
-		 * reservation.setBookingperson(rsmethods.findBookingPerson());
-		 * reservation.setFrom(null); reservation.setTo(null);
-		 * reservation.setProcessed(false);
-		 * reservation.setCurrency(rsmethods.findBookingPerson().getCurrency());
-		 * rsmethods.findBookingPerson().setBalance(rsmethods.findBookingPerson().
-		 * getBalance() - reservation.getAmmount());
-		 * rsmethods.saveReservation(reservation);
-		 * vmethods.printReservationSaved(reservation);
-		 * vmethods.printReservationDetails(rsmethods.findAllHotels(),
-		 * Integer.parseInt(vmethods.sroom) - 1); } else {
-		 * vmethods.printNotEnoughBalance(rsmethods.findBookingPerson()); }
-		 * vmethods.printBalance(rsmethods.findBookingPerson());
-		 * 
-		 * }
-		 * 
-		 * } while (vmethods.parseCheck());
-		 * vmethods.printReservedRooms(rsmethods.findAllHotels(),
-		 * rsmethods.findAllReservations());
-		 * vmethods.printCheckIn(rsmethods.findAllReservations());
-		 * vmethods.printCheckOut(rsmethods.findBookingPerson(),
-		 * rsmethods.findAllReservations()); break; } case USD: { do {
-		 * vmethods.printRooms(rsmethods.findAllHotels()); Room room =
-		 * vmethods.selectRoom(rsmethods.findAllHotels());
-		 * 
-		 * if (vmethods.parseCheck()) {
-		 * 
-		 * if (rsmethods.findBookingPerson().getBalance() >= room.getPrice()) {
-		 * Reservation reservation = new Reservation(); reservation.setActive(false);
-		 * reservation.setAmmount(room.getPrice());
-		 * reservation.setBookingperson(rsmethods.findBookingPerson());
-		 * reservation.setFrom(null); reservation.setTo(null);
-		 * reservation.setProcessed(false);
-		 * reservation.setCurrency(rsmethods.findBookingPerson().getCurrency());
-		 * rsmethods.findBookingPerson().setBalance(rsmethods.findBookingPerson().
-		 * getBalance() - reservation.getAmmount());
-		 * rsmethods.saveReservation(reservation);
-		 * vmethods.printReservationSaved(reservation);
-		 * vmethods.printReservationDetails(rsmethods.findAllHotels(),
-		 * Integer.parseInt(vmethods.sroom) - 1); } else {
-		 * vmethods.printNotEnoughBalance(rsmethods.findBookingPerson()); }
-		 * vmethods.printBalance(rsmethods.findBookingPerson());
-		 * 
-		 * }
-		 * 
-		 * } while (vmethods.parseCheck());
-		 * vmethods.printReservedRooms(rsmethods.findAllHotels(),
-		 * rsmethods.findAllReservations());
-		 * vmethods.printCheckIn(rsmethods.findAllReservations());
-		 * vmethods.printCheckOut(rsmethods.findBookingPerson(),
-		 * rsmethods.findAllReservations()); break; }
-		 */
-
-		
-
 }

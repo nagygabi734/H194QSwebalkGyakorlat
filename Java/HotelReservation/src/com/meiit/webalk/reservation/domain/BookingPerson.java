@@ -1,12 +1,13 @@
 package com.meiit.webalk.reservation.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class BookingPerson extends User {
 	
 	private String name;
 	private int accountNumber;
-	private int balance;
+	private BigDecimal balance;
 	private LocalDate birth;
 	private Currency currency;
 	
@@ -22,10 +23,10 @@ public class BookingPerson extends User {
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public int getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
-	public void setBalance(int i) {
+	public void setBalance(BigDecimal i) {
 		this.balance = i;
 	}
 	public LocalDate getBirth() {
