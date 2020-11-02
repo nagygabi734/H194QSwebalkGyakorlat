@@ -7,12 +7,7 @@ public class BookingPerson extends User {
 	
 	private String name;
 	private int accountNumber;
-<<<<<<< HEAD
 	private BigDecimal balance;
-=======
-	//BigDecimal
-	private int balance;
->>>>>>> 1e1e5cea61bca8e9086527ebe4871191f8f316d7
 	private LocalDate birth;
 	private Currency currency;
 	

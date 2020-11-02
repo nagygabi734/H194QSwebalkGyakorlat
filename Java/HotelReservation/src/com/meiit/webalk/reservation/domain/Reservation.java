@@ -5,12 +5,7 @@ import java.time.LocalDateTime;
 
 public class Reservation {
 
-<<<<<<< HEAD
 	private BigDecimal ammount;
-=======
-	//BigDecimal
-	private int ammount;
->>>>>>> 1e1e5cea61bca8e9086527ebe4871191f8f316d7
 	private LocalDateTime from;
 	private LocalDateTime to;
 	private boolean active;
