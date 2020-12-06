@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/foodList.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>Élelmiszerek</title>
+</head>
+<body>
+	<form th:action="@{/logout}" method="get">
+		<button class="btn btn-md btn-danger btn-block" name="logout"
+			type="Submit">Kijelentkezés</button>
+	</form>
+	<br>
+	<h3>Élelmiszer lista</h3>
+
+	<form action="/allfoods/new" method="get">
+		<button type="submit" class="btn btn-primary btn-lg"
+			style="margin: 30px">Új élelmiszer</button>
+	</form>
+	<br />
+	<br />
+	<table class="table">
+
+		<thead class="thead-dark">
+			<tr>
+				<th style="width: 10%" scope="col">Id</th>
+				<th style="width: 50%" scope="col">Név</th>
+				<th style="width: 20%" scope="col">Módosítás</th>
+				<th style="width: 20%" scope="col">Törlés</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="table-dark" th:each="foods : ${listFoods}">
+				<td><span th:text="${foods.id}"></span></td>
+				<td><a th:href="@{/allfoods/select/{id}(id=${foods.id})}"><span
+						th:text="${foods.name}"></span></a></td>
+				<td width="60"><a
+					th:href="@{/allfoods/edit/{id}(id=${foods.id})}"
+					class="btn btn-md btn-success btn-block">Módosítás</a></td>
+				<td width="60"><a
+					th:href="@{/allfoods/delete/{id}(id=${foods.id})}"
+					class="btn btn-md btn-success btn-block">Törlés</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/admin/home" method="get">
+		<button class="btn btn-md btn-danger btn-block" name="back_homepage"
+			type="Submit">Kezdőoldalra vissza</button>
+	</form>
+</body>
+</html>

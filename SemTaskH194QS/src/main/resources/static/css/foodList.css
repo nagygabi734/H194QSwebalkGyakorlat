@@ -1,0 +1,16 @@
+body{
+	background:url(../images/hatter.png);
+}
+h3{
+	color: white;
+}
+tr{
+text-align: center;
+}
+td{
+	color:white;
+	text-align: center;
+}
+span{
+	color:black;
+}

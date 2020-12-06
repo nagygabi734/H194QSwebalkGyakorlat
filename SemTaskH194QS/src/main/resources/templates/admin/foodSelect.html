@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/foodSelect.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<meta charset="utf-8" />
+<title>Élelmiszer adatok</title>
+</head>
+<body>
+	<div align="center">
+		<form th:action="@{/logout}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="logout"
+				type="Submit">Kijelentkezés</button>
+		</form>
+		<br>
+		<h3>Élelmiszer adatok</h3>
+		<br />
+		
+		<form action="#" th:object="${foods}" method="post">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th width="80" scope="col">Id</th>
+						<th width="120" scope="col">Név</th>
+						<th width="120" scope="col">Tipus</th>
+						<th width="120" scope="col">Ár</th>
+						<th width="120" scope="col">Mennyiség</th>
+						<th width="80" scope="col">Vissza</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table-dark">
+						<td><span th:text="*{id}"></span></td>
+						<td><span th:text="*{name}"></span></td>
+						<td><span th:text="*{type}"></span></td>
+						<td><span th:text="*{price}"></span></td>
+						<td><span th:text="*{amount}"></span></td>
+						<td><a th:href="@{/allfoods}"
+							class="btn btn-md btn-warning btn-block">Vissza</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

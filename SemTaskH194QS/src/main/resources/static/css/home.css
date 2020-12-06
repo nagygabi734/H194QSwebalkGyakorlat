@@ -1,0 +1,11 @@
+body{
+	background:url(../images/hatter.png);
+}
+.message-text {
+    font-style: normal;
+    font-size: 22px;
+    color: #004080;
+}
+span{
+	font-size: 30px;
+}
